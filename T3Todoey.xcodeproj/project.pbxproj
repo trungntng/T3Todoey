@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		4816CD212076444D00E093B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4816CD202076444D00E093B7 /* AppDelegate.swift */; };
-		4816CD232076444D00E093B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4816CD222076444D00E093B7 /* ViewController.swift */; };
 		4816CD262076444D00E093B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4816CD242076444D00E093B7 /* Main.storyboard */; };
 		4816CD292076444D00E093B7 /* T3Todoey.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4816CD272076444D00E093B7 /* T3Todoey.xcdatamodeld */; };
 		4816CD2B2076444E00E093B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4816CD2A2076444E00E093B7 /* Assets.xcassets */; };
 		4816CD2E2076444E00E093B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4816CD2C2076444E00E093B7 /* LaunchScreen.storyboard */; };
+		4816CD36207645DE00E093B7 /* DateTimeFormattedAsTimeAgo copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4816CD35207645DE00E093B7 /* DateTimeFormattedAsTimeAgo copy.swift */; };
+		4816CD382076549A00E093B7 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4816CD372076549A00E093B7 /* CategoryTableViewController.swift */; };
+		4816CD3A207654A400E093B7 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4816CD39207654A400E093B7 /* ItemTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4816CD1D2076444D00E093B7 /* T3Todoey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T3Todoey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4816CD202076444D00E093B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4816CD222076444D00E093B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4816CD252076444D00E093B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4816CD282076444D00E093B7 /* T3Todoey.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = T3Todoey.xcdatamodel; sourceTree = "<group>"; };
 		4816CD2A2076444E00E093B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4816CD2D2076444E00E093B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4816CD2F2076444E00E093B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4816CD35207645DE00E093B7 /* DateTimeFormattedAsTimeAgo copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DateTimeFormattedAsTimeAgo copy.swift"; sourceTree = "<group>"; };
+		4816CD372076549A00E093B7 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		4816CD39207654A400E093B7 /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +61,14 @@
 			isa = PBXGroup;
 			children = (
 				4816CD202076444D00E093B7 /* AppDelegate.swift */,
-				4816CD222076444D00E093B7 /* ViewController.swift */,
+				4816CD372076549A00E093B7 /* CategoryTableViewController.swift */,
+				4816CD39207654A400E093B7 /* ItemTableViewController.swift */,
 				4816CD242076444D00E093B7 /* Main.storyboard */,
 				4816CD2A2076444E00E093B7 /* Assets.xcassets */,
 				4816CD2C2076444E00E093B7 /* LaunchScreen.storyboard */,
 				4816CD2F2076444E00E093B7 /* Info.plist */,
 				4816CD272076444D00E093B7 /* T3Todoey.xcdatamodeld */,
+				4816CD35207645DE00E093B7 /* DateTimeFormattedAsTimeAgo copy.swift */,
 			);
 			path = T3Todoey;
 			sourceTree = "<group>";
@@ -138,9 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4816CD232076444D00E093B7 /* ViewController.swift in Sources */,
+				4816CD3A207654A400E093B7 /* ItemTableViewController.swift in Sources */,
+				4816CD36207645DE00E093B7 /* DateTimeFormattedAsTimeAgo copy.swift in Sources */,
 				4816CD292076444D00E093B7 /* T3Todoey.xcdatamodeld in Sources */,
 				4816CD212076444D00E093B7 /* AppDelegate.swift in Sources */,
+				4816CD382076549A00E093B7 /* CategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
