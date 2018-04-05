@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import ChameleonFramework
 
 class CategoryTableViewController: UITableViewController {
     
@@ -24,6 +25,7 @@ class CategoryTableViewController: UITableViewController {
             let category = Category(context: self.viewContext)
             category.name = ac.textFields?.first?.text ?? ""
             category.createdAt = Date()
+            category.color = UIColor.randomFlat.hexValue()
             self.categories.append(category)
             self.saveContext()
             self.tableView.reloadData()
@@ -60,6 +62,7 @@ class CategoryTableViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCategory))
+        tableView.separatorStyle = .none
 
         viewContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
@@ -83,8 +86,21 @@ class CategoryTableViewController: UITableViewController {
         
         cell.textLabel?.text = category.name ?? ""
         cell.detailTextLabel?.text = dateTimeFormattedAsTimeAgo(date: category.createdAt! as NSDate)
+        cell.backgroundColor = UIColor(hexString: category.color ?? UIColor.white.hexValue())
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            viewContext.delete(categories[indexPath.row])
+            categories.remove(at: indexPath.row)
+            saveContext()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        default:
+            break
+        }
     }
     
 }

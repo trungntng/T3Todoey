@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import ChameleonFramework
 
 class ItemTableViewController: UITableViewController {
     
@@ -64,11 +65,32 @@ class ItemTableViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addItem))
-        title = selectedCategory?.name ?? ""
+        
+        tableView.separatorStyle = .none
         
         viewContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         loadItems()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let colorHex = selectedCategory?.color {
+            title = selectedCategory?.name ?? ""
+            guard let navBar = navigationController?.navigationBar else {return}
+            
+            navBar.barTintColor = UIColor(hexString: colorHex)
+            navBar.tintColor = ContrastColorOf(UIColor(hexString: colorHex)!, returnFlat: true)
+            navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: ContrastColorOf(UIColor(hexString: colorHex)!, returnFlat: true)]
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        let originalColor = UIColor(hexString: "4E98F1")!
+        guard let navBar = navigationController?.navigationBar else {return}
+        
+        navBar.barTintColor = originalColor
+        navBar.tintColor = ContrastColorOf(originalColor, returnFlat: true)
+        navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: ContrastColorOf(originalColor, returnFlat: true)]
     }
 
     //MARK: - UITableViewController
@@ -82,6 +104,11 @@ class ItemTableViewController: UITableViewController {
         
         cell.textLabel?.text = item.title
         cell.accessoryType = item.isChecked ? .checkmark : .none
+        
+        if let color = UIColor(hexString: item.category?.color ?? UIColor.white.hexValue())?.darken(byPercentage: CGFloat(indexPath.row)/CGFloat(items.count)) {
+            cell.backgroundColor = color
+            cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true)
+        }
         
         return cell
     }
